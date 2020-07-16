@@ -17,3 +17,24 @@ input{
   font-size:20px;
  
 }
+
+@media only screen and (min-width:360px){
+  input{
+    font-size:15px;
+    width:100px;
+  }
+} 
+
+@media only screen and (min-width:320px){
+  input{
+    font-size:30px;
+    width:100px;
+  }
+}
+@media only screen and (min-width:768px){
+  input{
+    font-size:30px;
+    width:250px;
+  }
+  
+}

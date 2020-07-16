@@ -13,7 +13,8 @@ function App() {
 
   const outputTip = useRef(); // = (tipPercent / 100) * bill
   const outputTotal = useRef(); //  = bill + tip
-
+  
+  // STATES
   let [bill,setBill] = useState(0);
   let [tipPercent,setTipPercent] = useState(15);
   let [people,setPeople] = useState(1);
@@ -24,22 +25,19 @@ function calculate(){
 
   if(people > 1){
     tip = tip/people;
-    outputTip.current.innerHTML = '$' + tip.toFixed(2);
-    outputTotal.current.innerHTML = '$'+ totalEach.toFixed(2);
     tipRef.current.innerHTML =  `Tip <span class = 'per-person'>per person</span>: $${tip.toFixed(2)}`
     totalRef.current.innerHTML =  `Total <span class = 'per-person'>per person</span>: $${totalEach.toFixed(2)}`
   }
   else{
-  outputTip.current.innerHTML = '$' + tip.toFixed(2);
-  outputTotal.current.innerHTML = '$'+ (bill + tip).toFixed(2);
-  tipRef.current.innerHTML =  `Tip:${tip.toFixed(2)}`
-  totalRef.current.innerHTML =  `Total:${totalEach.toFixed(2)}`
+  tipRef.current.innerHTML =  `Tip:$${tip.toFixed(2)}`
+  totalRef.current.innerHTML =  `Total:$${totalEach.toFixed(2)}`
   }
 }
 
   function billEvent(){
     setBill(parseFloat(Math.abs(billRef.current.value)))
   }
+
   function billFocusOut(){
     let positiveBill = Math.abs(billRef.current.value);
     billRef.current.value = positiveBill; 
